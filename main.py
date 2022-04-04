@@ -197,6 +197,7 @@ class PlaceClient:
                 msg = ws.recv()
             except WebSocketConnectionClosedException as e:
                 logger.error(e)
+                ws.connect()
                 continue
             if msg is None:
                 logger.error("Reddit failed to acknowledge connection_init")
